@@ -1,0 +1,7 @@
+node_modules/
+.env
+.DS_Store
+
+# MCP 实时数据缓存（由 tools/mcp-test-live.js 生成，含真实门店信息，属开发本地产物）
+data/mcp-live.json
+data/mcp-raw/

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>麦门本命套餐机 · mcd-fate-combo</title>
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="grid-bg"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">🍔</span>
+      <div class="brand-text">
+        <h1>麦门本命套餐机</h1>
+        <p>mcd-fate-combo · Agent Skill for 麦当劳程序员创意开发大赛</p>
+      </div>
+    </div>
+    <div class="badge-live" id="liveBadge"><i></i> <span id="liveText">正在连接麦当劳 MCP…</span></div>
+  </header>
+
+  <main class="stage">
+    <!-- 左：输入 -->
+    <section class="panel input-panel">
+      <div class="panel-head">
+        <span class="step">STEP 01</span>
+        <h2>先给自己报个到</h2>
+        <p class="hint">三秒钟填完，让算法帮你把“今天吃什么”这道千年难题一次性解决。</p>
+      </div>
+
+      <div class="field">
+        <label>我的星座</label>
+        <div class="chips zodiac" id="zodiacBox"></div>
+      </div>
+
+      <div class="field">
+        <label>今天的心情</label>
+        <div class="chips mood" id="moodBox"></div>
+      </div>
+
+      <div class="field">
+        <label>今日代码状态</label>
+        <div class="chips code" id="codeBox"></div>
+      </div>
+
+      <div class="field">
+        <label>预算 <b id="budgetVal">¥45</b></label>
+        <input type="range" id="budget" min="20" max="70" step="1" value="45" />
+        <div class="range-scale"><span>¥20</span><span>¥45</span><span>¥70</span></div>
+      </div>
+
+      <div class="field">
+        <label>取餐门店 <span class="dim" id="storeCount"></span></label>
+        <select id="storeSelect" class="store-select"><option>正在定位附近门店…</option></select>
+        <p class="store-addr" id="storeAddr"></p>
+      </div>
+
+      <button class="cta" id="drawBtn">🎲 抽 我 的 本 命 套 餐</button>
+      <p class="tip">取数交给 MCP · 算钱交给确定性代码 · 表达交给 Agent</p>
+    </section>
+
+    <!-- 右：结果 -->
+    <section class="panel result-panel" id="resultPanel">
+      <div class="empty" id="emptyState">
+        <div class="empty-emoji">🍟</div>
+        <h3>本命套餐尚未揭晓</h3>
+        <p>填好左边的信息，点一下“抽我的本命套餐”<br/>这里会生成一张专属的麦门本命卡。</p>
+      </div>
+
+      <div class="result hidden" id="resultState">
+        <div class="result-head">
+          <div class="result-title">
+            <span class="step">STEP 02</span>
+            <h2 id="resTitle">你的本命套餐</h2>
+            <p id="resSub">水瓶座 · 摸鱼划水 · 预算 ¥32</p>
+          </div>
+          <div class="destiny">
+            <div class="destiny-num" id="destinyNum">88</div>
+            <div class="destiny-label">本命指数</div>
+          </div>
+        </div>
+
+        <div class="combo" id="comboBox"></div>
+
+        <div class="stats">
+          <div class="stat"><span class="k">套餐价</span><b id="stTotal">¥0</b></div>
+          <div class="stat save"><span class="k">立省</span><b id="stSaved">¥0</b></div>
+          <div class="stat"><span class="k">总热量</span><b id="stKcal">0</b><i>kcal</i></div>
+          <div class="stat"><span class="k">蛋白质</span><b id="stProtein">0</b><i>g</i></div>
+        </div>
+        <div class="coupon-line" id="couponLine"></div>
+        <div class="quote-line" id="quoteLine"></div>
+        <div class="coupon-list" id="couponList"></div>
+        <p class="nutr-note" id="nutrNote"></p>
+
+        <div class="reading">
+          <h4>🔮 本命解读</h4>
+          <p id="rdMood"></p>
+          <p id="rdCode"></p>
+          <p id="rdElement"></p>
+        </div>
+
+        <div class="lucky">
+          <div class="lucky-item"><span>幸运数字</span><b id="lkNum">7</b></div>
+          <div class="lucky-item wide"><span>幸运代码</span><code id="lkCode">—</code></div>
+          <div class="lucky-item wide"><span>BUG 驱逐符</span><code id="lkCharm">—</code></div>
+        </div>
+
+        <!-- 结算下单：关联附近门店，一键下单 -->
+        <div class="order-zone">
+          <div class="order-head">
+            <h4>🍔 就它了？直接下单</h4>
+            <p class="order-store" id="ozStore">—</p>
+          </div>
+
+          <div class="field compact">
+            <label>取餐方式</label>
+            <div class="chips takeway" id="takeWayBox"></div>
+          </div>
+
+          <button class="cta order-btn" id="orderBtn">⚡ 一 键 下 单</button>
+          <p class="order-warn">
+            将调用麦当劳 MCP <code>create-order</code> 在<b>你的麦当劳账户</b>中创建真实订单，
+            需自行通过支付链接或麦当劳 App 完成支付。
+          </p>
+
+          <div class="order-result hidden" id="orderResult"></div>
+        </div>
+
+        <details class="trace">
+          <summary>🧩 本次结果用到的麦当劳 MCP 调用</summary>
+          <ul id="traceList"></ul>
+          <p class="trace-note">以上数据来自麦当劳 MCP；套餐组合由纯标准库的确定性算法穷举得出，结果可复现、可核验。</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>基于麦当劳 MCP 能力开发</span>
+    <span class="dot">·</span>
+    <span>参赛作品 · 麦当劳程序员创意开发大赛</span>
+    <span class="dot">·</span>
+    <span>Powered by 腾讯 WorkBuddy</span>
+  </footer>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>
