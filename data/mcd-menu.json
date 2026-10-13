@@ -1,0 +1,40 @@
+{
+  "source": "mcd-mcp (query-meals / list-nutrition-foods / available-coupons)",
+  "snapshotAt": "2026-10-12",
+  "note": "本地快照，字段形状对齐麦当劳 MCP 返回结构；配置 MCD_MCP_TOKEN 后改为实时拉取。",
+  "items": [
+    { "code": "BIGMAC",  "name": "巨无霸",       "en": "Big Mac",          "cat": "main",  "price": 25.5, "kcal": 550, "protein": 25, "emoji": "🍔", "tags": ["经典", "扎实", "牛肉", "招牌"] },
+    { "code": "GRILLED", "name": "板烧鸡腿堡",   "en": "Grilled Chicken",  "cat": "main",  "price": 23.0, "kcal": 430, "protein": 24, "emoji": "🥪", "tags": ["清淡", "高蛋白", "鸡肉", "不辣"] },
+    { "code": "SPICY",   "name": "麦辣鸡腿堡",   "en": "McSpicy",          "cat": "main",  "price": 21.5, "kcal": 470, "protein": 22, "emoji": "🌶️", "tags": ["辣", "上头", "鸡肉", "解压"] },
+    { "code": "DBLCHS",  "name": "双层吉士汉堡", "en": "Double Cheeseburger","cat": "main","price": 19.0, "kcal": 450, "protein": 23, "emoji": "🧀", "tags": ["芝士", "牛肉", "浓郁"] },
+    { "code": "FILET",   "name": "麦香鱼",       "en": "Filet-O-Fish",     "cat": "main",  "price": 17.5, "kcal": 340, "protein": 15, "emoji": "🐟", "tags": ["轻盈", "鳕鱼", "不辣"] },
+    { "code": "NUG5",    "name": "麦乐鸡(5块)",  "en": "Chicken McNuggets","cat": "main",  "price": 13.5, "kcal": 270, "protein": 15, "emoji": "🍗", "tags": ["易食", "鸡肉", "分享"] },
+    { "code": "WINGS2",  "name": "麦辣鸡翅(2块)","en": "McWings",          "cat": "main",  "price": 14.0, "kcal": 300, "protein": 18, "emoji": "🔥", "tags": ["辣", "解压", "鸡肉"] },
+    { "code": "CHSBRG",  "name": "吉士汉堡",     "en": "Cheeseburger",     "cat": "main",  "price": 12.5, "kcal": 300, "protein": 15, "emoji": "🍔", "tags": ["小份", "芝士", "省钱"] },
+
+    { "code": "FRIES_L", "name": "大薯条",       "en": "Large Fries",      "cat": "side",  "price": 15.0, "kcal": 450, "protein": 5,  "emoji": "🍟", "tags": ["经典", "脆", "满足"] },
+    { "code": "FRIES_M", "name": "中薯条",       "en": "Medium Fries",     "cat": "side",  "price": 12.5, "kcal": 340, "protein": 4,  "emoji": "🍟", "tags": ["经典", "均衡"] },
+    { "code": "CORN",    "name": "玉米杯",       "en": "Corn Cup",         "cat": "side",  "price": 9.5,  "kcal": 130, "protein": 4,  "emoji": "🌽", "tags": ["轻盈", "粗粮", "健康"] },
+    { "code": "PIE",     "name": "香芋派",       "en": "Taro Pie",         "cat": "side",  "price": 7.5,  "kcal": 240, "protein": 3,  "emoji": "🥧", "tags": ["甜", "治愈", "酥"] },
+    { "code": "SALAD",   "name": "蔬菜沙拉",     "en": "Side Salad",       "cat": "side",  "price": 9.0,  "kcal": 70,  "protein": 2,  "emoji": "🥗", "tags": ["轻盈", "清爽", "健康"] },
+
+    { "code": "COKE_M",  "name": "中杯可口可乐", "en": "Coca-Cola (M)",    "cat": "drink", "price": 9.5,  "kcal": 150, "protein": 0,  "emoji": "🥤", "tags": ["经典", "快乐水", "气泡"] },
+    { "code": "COKE_Z",  "name": "中杯无糖可乐", "en": "Coke Zero (M)",     "cat": "drink", "price": 9.5,  "kcal": 0,   "protein": 0,  "emoji": "🥤", "tags": ["零糖", "轻盈", "快乐水"] },
+    { "code": "LATTE_M", "name": "麦咖啡拿铁",   "en": "McCafé Latte (M)",  "cat": "drink", "price": 16.5, "kcal": 130, "protein": 7,  "emoji": "☕", "tags": ["咖啡因", "续命", "提神"] },
+    { "code": "AMERICANO","name": "美式咖啡",     "en": "Americano",         "cat": "drink", "price": 14.0, "kcal": 10,  "protein": 1,  "emoji": "☕", "tags": ["咖啡因", "提神", "零负担"] },
+    { "code": "ORANGE",  "name": "橙汁",         "en": "Orange Juice",     "cat": "drink", "price": 12.0, "kcal": 140, "protein": 1,  "emoji": "🧃", "tags": ["果味", "维C", "清甜"] },
+    { "code": "MILK",    "name": "纯牛奶",       "en": "Pure Milk",        "cat": "drink", "price": 8.0,  "kcal": 130, "protein": 6,  "emoji": "🥛", "tags": ["温润", "补蛋白", "不刺激"] },
+
+    { "code": "MCOREO",  "name": "奥利奥麦旋风", "en": "Oreo McFlurry",    "cat": "dessert","price": 13.0,"kcal": 300, "protein": 6,  "emoji": "🍦", "tags": ["甜", "治愈", "冰"] },
+    { "code": "CONE",    "name": "原味甜筒",     "en": "Vanilla Cone",     "cat": "dessert","price": 4.5, "kcal": 130, "protein": 3,  "emoji": "🍦", "tags": ["甜", "小确幸", "省钱"] }
+  ],
+  "coupons": [
+    { "id": "C30_5",  "name": "满30减5",     "type": "threshold", "threshold": 30, "off": 5,  "desc": "实付满30元可用" },
+    { "id": "C45_8",  "name": "满45减8",     "type": "threshold", "threshold": 45, "off": 8,  "desc": "实付满45元可用" },
+    { "id": "C25_4",  "name": "满25减4",     "type": "threshold", "threshold": 25, "off": 4,  "desc": "实付满25元可用" },
+    { "id": "BIGMAC3", "name": "巨无霸立减3", "type": "item", "item": "BIGMAC", "off": 3, "desc": "点含巨无霸的订单可减3元" },
+    { "id": "COMBO21", "name": "1+1随心配",  "type": "combo", "comboPrice": 13.9,
+      "eligible": ["CHSBRG", "NUG5", "FRIES_M", "CORN", "PIE", "COKE_M", "COKE_Z", "CONE", "MILK"],
+      "desc": "指定品类中任选两件13.9元" }
+  ]
+}
